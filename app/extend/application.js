@@ -19,7 +19,6 @@ let vodClient = null;
 module.exports = {
   get vodClient() {
     if (!vodClient) {
-      console.log(this.config, '333');
       const { accessKeyId, accessKeySecret } = this.config.vod;
       vodClient = initVodClient(accessKeyId, accessKeySecret);
     }

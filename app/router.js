@@ -23,6 +23,7 @@ module.exports = app => {
   // 阿里云 VOD
   router.get('/user/CreateUploadVideo', auth, controller.vod.createUploadVideo);// 获取视频上传地址和凭证
   router.get('/user/RefreshUploadVideo', auth, controller.vod.refreshUploadVideo);// 刷新视频上传凭证
+  router.get('/vod/GetVideoPlayAuth', controller.vod.getVideoPlayAuth); // 获取视频播放凭证
   // 创建视频
   router.post('/videos', auth, controller.video.createVideo);
   // 获取视频详情

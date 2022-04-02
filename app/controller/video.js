@@ -30,19 +30,18 @@ class VideoController extends Controller {
     video.isLiked = false; // 是否喜欢
     video.isDisliked = false; // 是否不喜欢
     video.user.Subscribed = false; // 是否已订阅作者
-
-    if (this.ctx.user) {
-      const userId = this.ctx.user._id;
-      if (await VideoLike.findOne({ user: userId, videoId, like: 1 })) {
-        video.isLiked = true;
-      }
-      if (await VideoLike.findOne({ user: userId, videoId, like: -1 })) {
-        video.isDisliked = true;
-      }
-      if (await Subscription.findOne({ user: userId, channel: video.user._id, like: 1 })) {
-        video.user.Subscribed = true;
-      }
-    }
+    // if (this.ctx.user) {
+    //   const userId = this.ctx.user._id;
+    //   if (await VideoLike.findOne({ user: userId, videoId, like: 1 })) {
+    //     video.isLiked = true;
+    //   }
+    //   if (await VideoLike.findOne({ user: userId, videoId, like: -1 })) {
+    //     video.isDisliked = true;
+    //   }
+    //   if (await Subscription.findOne({ user: userId, channel: video.user._id, like: 1 })) {
+    //     video.user.Subscribed = true;
+    //   }
+    // }
     this.ctx.body = {
       video,
     };
